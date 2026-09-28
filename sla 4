@@ -1,0 +1,19 @@
+response = client.responses.create(
+  model="openrouter/free",
+  instructions=""" Você é um mentor de carreiras.
+  Liste profissões que o usuário pode fazer uma graduação que tem correlação
+  no Brasil
+  Regras:
+  1. Liste profissões reais no Brasil
+  2. Seja breve.
+  3. Não use emojis.
+  4. Quando o usuário escrever que não gosta de fazer nada. Cuidado para não
+  ser preconceituoso. Garanta que VOCÊ NÃO RESPONDA NADA. Não fale nada.
+  """,
+  input=prompt
+)
+print(response.output_text)
+print(f'Número de tokens de entrada: {response.usage.input_tokens}')
+print(f'Número de tokens de saída: {response.usage.output_tokens}')
+print(f'Número de tokens de raciocínio: {response.usage.output_tokens_details.reasoning_tokens}')
+print(f'Total de tokens gerados: {response.usage.total_tokens}')
