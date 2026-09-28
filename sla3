@@ -1,0 +1,39 @@
+dicionario = "qwertyuiopasdfghjklzxcvbnm"
+alfabeto = "abcdefghijklmnopqrstuvwxyz"
+
+def codifica(senha):
+    senha_criptografada = ""
+    for letra in senha:
+        if "a" <= letra <= "z":
+            posicao = ord(letra) - ord("a") # 0 até 25
+            senha_criptografada += dicionario[posicao]
+        else:
+            senha_criptografada += letra
+    return senha_criptografada
+
+senha = "Marcelo123"
+print(f"A senha '{senha}' criptografada é: {codifica(senha)}")
+
+# Exemplo de uso com uma nova senha:
+nova_senha = "python"
+print(f"A senha '{nova_senha}' criptografada é: {codifica(nova_senha)}")
+senha = "olecram"
+valor = 0
+for letra in senha:
+    valor = valor + ord(letra)
+print(valor)
+senha = "oledrbk"
+valor = 0
+
+for letra in senha:
+    valor = valor + ord(letra)
+
+print(valor)
+def calcula_hash(senha):
+    valor = 0
+    for letra in senha:
+        valor = valor + ord(letra)
+    return valor
+print(calcula_hash("ola"))
+print(calcula_hash("Marcelo123"))
+print(calcula_hash("Marcelo123!@"))
